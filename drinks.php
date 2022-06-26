@@ -77,8 +77,8 @@ $this_drink_record = mysqli_fetch_assoc($this_drink_result);
             <h2> Drinks Information </h2>
 
             <?php
-            echo "<p> Drink Name: ".$this_drink_record['DrinkName']."<br>";
-            echo "<p> Cost: $".$this_drink_record['Price']."<br>";
+            echo "<p> Drink Name: <em>".$this_drink_record['DrinkName']."</em><br>";
+            echo "<p> Cost: <em>$".$this_drink_record['Price']."</em><br>";
             ?>
 
             <h2> Select another drink </h2>
@@ -123,6 +123,17 @@ $this_drink_record = mysqli_fetch_assoc($this_drink_result);
                 }
             }
             ?>
+
+            <!-- Adding an insert into the database -->
+            <h2> Add drink </h2>
+            <form action='insert.php' method='post'>
+                <label for='drink_to_add'>Drink name:</label>
+                <input type='text' id='drink_to_add' name='drink_to_add'><br>
+                <label for='cost_to_add'>Cost:</label>
+                <input type='number' id='cost_to_add' name='cost_to_add'>
+                <!-- Submit button -->
+                <input type='submit' value='Submit'>
+            </form>
 
         </main>
     </body>
