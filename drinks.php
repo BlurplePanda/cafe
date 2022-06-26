@@ -130,7 +130,7 @@ $this_drink_record = mysqli_fetch_assoc($this_drink_result);
                 <label for='drink_to_add'>Drink name:</label>
                 <input type='text' id='drink_to_add' name='drink_to_add'><br>
                 <label for='cost_to_add'>Cost:</label>
-                <input type='number' step='0.01' id='cost_to_add' name='cost_to_add'>
+                <input type='number' step='0.01' min='0' max='99.99' id='cost_to_add' name='cost_to_add'>
                 <!-- Submit button -->
                 <input type='submit' value='Submit'>
             </form>
