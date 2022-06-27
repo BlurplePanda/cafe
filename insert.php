@@ -19,6 +19,6 @@ if(!mysqli_query($con, $insert_drink)) {
 }
 
 /* Refresh the page after 2 seconds and return to the drinks.php page */
-header(header: "refresh:2; url=drinks.php");
+header("refresh:2; url=drinks.php");
 
 ?>
