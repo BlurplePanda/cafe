@@ -6,3 +6,16 @@ else{
     echo "connected to database";
 }
 
+$update_drink = "UPDATE drinks SET DrinkName='$_POST[DrinkName]', DrinkPrice='$_POST[DrinkPrice]' WHERE DrinkID='$_POST[DrinkID]'";
+
+/* Check if update successful */
+if(!mysqli_query($con, $update_drink))
+{
+    echo "Not updated";
+}
+else
+{
+    echo "Updated!";
+}
+
+header("refresh:2;url=drinks.php");
