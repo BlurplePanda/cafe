@@ -17,14 +17,14 @@ while(true) {
     /* Check the data has been inserted */
     if (!mysqli_query($con, $insert_drink)) {
         if (mysqli_errno($con) == 1062) {
-            echo "Insert failed, regenerating ID";
+            echo "<br>Insert failed, regenerating ID";
             $id = substr($alphabet, rand(1, 26), 1).substr($alphabet, rand(1,26), 1);
         } else {
-            echo "Insert failed!";
+            echo "<br>Insert failed!";
             break;
         }
     } else {
-        echo "Insert successful!";
+        echo "<br>Insert successful!";
         break;
     }
 }
