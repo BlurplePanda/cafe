@@ -31,6 +31,9 @@ $this_drink_query = "SELECT DrinkName, Price FROM drinks WHERE DrinkID = '".$id.
 $this_drink_result = mysqli_query($con, $this_drink_query);
 $this_drink_record = mysqli_fetch_assoc($this_drink_result);
 
+$update_drinks = "SELECT * FROM drinks";
+$update_drinks_record = mysqli_query($con, $update_drinks);
+
 ?>
 
 <html lang='en'>
@@ -134,6 +137,27 @@ $this_drink_record = mysqli_fetch_assoc($this_drink_result);
                 <!-- Submit button -->
                 <input type='submit' value='Submit'>
             </form>
+
+            <!-- Update drinks in database -->
+            <h2> Update drink </h2>
+
+            <table>
+                <tr>
+                    <th>Drink information</th>
+                    <th>Drink price</th>
+                </tr>
+                <?php
+                while($row = mysqli_fetch_array($update_drinks_record))
+                {
+                    echo "<tr><form action='update.php' method='post'>";
+                    echo "<td><input type='text' name='Item' value='".$row['DrinkName']."'></td>";
+                    echo "<td><input type='number' step='0.01' min='0' max='99.99' name='Item' value='".$row['DrinkPrice']."'></td>";
+                    echo "<input type='hidden' name='DrinkID' value='".$row['DrinkID']."'>";
+                    echo "<td><input type='submit'></td>";
+                    echo "</form></tr>";
+                }
+                ?>
+            </table>
 
         </main>
     </body>
