@@ -35,6 +35,7 @@ $all_customers_result = mysqli_query($con, $all_customers_query);
                 <li><a href='drinks.php'> Drinks </a></li>
                 <li><a href='orders.php'> Orders </a></li>
                 <li><a href='customers.php'> Customers </a></li>
+                <li><a href='login.php'> Admin </a></li>
             </ul>
          </nav>
       </header>
