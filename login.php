@@ -32,7 +32,17 @@ else{
 </header>
 
 <main>
+    <h2>Login here</h2>
+    <!--Login form-->
+    <form name='login_form' id='login_form' method='post' action='process_login.php'>
+        <label for='username'>Username:</label>
+        <input type='text' name='username'><br>
 
+        <label for='password'>Password:</label>
+        <input type='text' name='password'><br>
+
+        <input type='submit' name='submit' id='submit' value='Log in'>
+    </form>
 </main>
 </body>
 
