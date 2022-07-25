@@ -21,11 +21,9 @@ else{
     $sort_by = 'DrinkName';
 }
 
-$all_drinks_query = "SELECT DrinkID, DrinkName FROM drinks";
-$all_drinks_result = mysqli_query($con, $all_drinks_query);
-
 $sort_drinks_query = "SELECT DrinkID, DrinkName, Price FROM drinks ORDER BY ".$sort_by;
 $sort_drinks_result = mysqli_query($con, $sort_drinks_query);
+$sort_drinks_result2 = mysqli_query($con, $sort_drinks_query);
 
 $this_drink_query = "SELECT DrinkName, Price FROM drinks WHERE DrinkID = '".$id."'";
 $this_drink_result = mysqli_query($con, $this_drink_query);
@@ -89,9 +87,9 @@ $update_drinks_record = mysqli_query($con, $update_drinks);
                 <select id='drink' name='drink'>
                     <!--options-->
                     <?php
-                    while($all_drinks_record = mysqli_fetch_assoc($all_drinks_result)){
-                        echo "<option value = '". $all_drinks_record['DrinkID'] . "'>";
-                        echo $all_drinks_record['DrinkName'];
+                    while($sort_drinks_record = mysqli_fetch_assoc($sort_drinks_result2)){
+                        echo "<option value = '". $sort_drinks_record['DrinkID'] . "'>";
+                        echo $sort_drinks_record['DrinkName'];
                         echo "</option>";
                     }
 
@@ -151,7 +149,7 @@ $update_drinks_record = mysqli_query($con, $update_drinks);
                 {
                     echo "<tr><form action='update.php' method='post'>";
                     echo "<td><input type='text' name='Item' value='".$row['DrinkName']."'></td>";
-                    echo "<td><input type='number' step='0.01' min='0' max='99.99' name='Item' value='".$row['DrinkPrice']."'></td>";
+                    echo "<td><input type='number' step='0.01' min='0' max='99.99' name='Item' value='".$row['Price']."'></td>";
                     echo "<input type='hidden' name='DrinkID' value='".$row['DrinkID']."'>";
                     echo "<td><input type='submit'></td>";
                     echo "</form></tr>";
