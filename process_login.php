@@ -22,7 +22,6 @@ if($verify) {
 else {
     echo "Incorrect name or password";
 }
-}
 
 ?>
 
