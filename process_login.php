@@ -13,7 +13,7 @@ $login_query = "SELECT Password FROM users WHERE Username = '".$user."'";
 $login_result = mysqli_query($con, $login_query);
 $login_record = mysqli_fetch_assoc($login_result);
 
-$hash = $login_record["password"];
+$hash = $login_record["Password"];
 
 $verify = password_verify($pass, $hash);
 if($verify) {
