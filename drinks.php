@@ -127,37 +127,7 @@ $update_drinks_record = mysqli_query($con, $update_drinks);
             }
             ?>
 
-            <!-- Adding an insert into the database -->
-            <h2> Add drink </h2>
-            <form action='insert.php' method='post'>
-                <label for='drink_to_add'>Drink name:</label>
-                <input type='text' id='drink_to_add' name='drink_to_add'><br>
-                <label for='cost_to_add'>Cost:</label>
-                <input type='number' step='0.01' min='0' max='99.99' id='cost_to_add' name='cost_to_add'>
-                <!-- Submit button -->
-                <input type='submit' value='Submit'>
-            </form>
-
-            <!-- Update drinks in database -->
-            <h2> Update drink </h2>
-
-            <table>
-                <tr>
-                    <th>Drink information</th>
-                    <th>Drink price</th>
-                </tr>
-                <?php
-                while($row = mysqli_fetch_array($update_drinks_record))
-                {
-                    echo "<tr><form action='update.php' method='post'>";
-                    echo "<td><input type='text' name='Item' value='".$row['DrinkName']."'></td>";
-                    echo "<td><input type='number' step='0.01' min='0' max='99.99' name='Item' value='".$row['Price']."'></td>";
-                    echo "<input type='hidden' name='DrinkID' value='".$row['DrinkID']."'>";
-                    echo "<td><input type='submit'></td>";
-                    echo "</form></tr>\n";
-                }
-                ?>
-            </table>
+            <h2><a href='update_drinks.php'>UPDATE DRINKS</a></h2>
 
         </main>
     </body>
