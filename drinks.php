@@ -71,6 +71,7 @@ $update_drinks_record = mysqli_query($con, $update_drinks);
             while($sort_drinks_record = mysqli_fetch_assoc($sort_drinks_result)) {
                 echo "<p>" . $sort_drinks_record['DrinkName'] . " ";
                 echo $sort_drinks_record['Price'];
+                echo "\n";
             }
             ?>
 
@@ -91,6 +92,7 @@ $update_drinks_record = mysqli_query($con, $update_drinks);
                         echo "<option value = '". $sort_drinks_record['DrinkID'] . "'>";
                         echo $sort_drinks_record['DrinkName'];
                         echo "</option>";
+                        echo "\n";
                     }
 
                     ?>
@@ -152,7 +154,7 @@ $update_drinks_record = mysqli_query($con, $update_drinks);
                     echo "<td><input type='number' step='0.01' min='0' max='99.99' name='Item' value='".$row['Price']."'></td>";
                     echo "<input type='hidden' name='DrinkID' value='".$row['DrinkID']."'>";
                     echo "<td><input type='submit'></td>";
-                    echo "</form></tr>";
+                    echo "</form></tr>\n";
                 }
                 ?>
             </table>
