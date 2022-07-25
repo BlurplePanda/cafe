@@ -23,7 +23,6 @@ else{
 
 $sort_drinks_query = "SELECT DrinkID, DrinkName, Price FROM drinks ORDER BY ".$sort_by;
 $sort_drinks_result = mysqli_query($con, $sort_drinks_query);
-$sort_drinks_result2 = mysqli_query($con, $sort_drinks_query);
 
 $this_drink_query = "SELECT DrinkName, Price FROM drinks WHERE DrinkID = '".$id."'";
 $this_drink_result = mysqli_query($con, $this_drink_query);
@@ -87,7 +86,8 @@ $update_drinks_record = mysqli_query($con, $update_drinks);
                 <select id='drink' name='drink'>
                     <!--options-->
                     <?php
-                    while($sort_drinks_record = mysqli_fetch_assoc($sort_drinks_result2)){
+                    mysqli_data_seek($sort_drinks_result, 0);
+                    while($sort_drinks_record = mysqli_fetch_assoc($sort_drinks_result)){
                         echo "<option value = '". $sort_drinks_record['DrinkID'] . "'>";
                         echo $sort_drinks_record['DrinkName'];
                         echo "</option>";
